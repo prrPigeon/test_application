@@ -19,23 +19,26 @@ where run.py file is located, and application will be started on http://127.0.0.
 ### About Application ###
 
 **Database**
+
 Database used in application is PostgreSQL==10.0.
 If you need to install PostgreSQL on your machine, useful [link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04).
 .env file is created to handle all enviroment variables, in this file you will 
 find instructions where to put you path to database, api keys, email users etc. For testing database
-changes and to see what happening usefull application is PgAdmin, but i am not expert with PgAdmin, 
+changes and to see what happening, usefull application is PgAdmin, but i am not expert with PgAdmin, 
 i like to use terminal, and if you want to quickly open created database for this application.
 Usefull command is 
 `$ psql -d <nameofdatabase> -U <nameofdatabaseuser> -h localhost`
 
 **Application**
-Framework used in application is Flask, and i tried to use as less as i can, packages in application.
+
+Framework used in application is Flask, and i tried to use as less as i can packages in application.
 So for REST server you will find there is no present Flask-RESTful extension.
 Every route is pretty self explanatory, i tried to comments as much i can to describe each method in application.
 Maybe coding is little inconsistent, but i try to use few different approach to handling logic.
 
 
 **Test RESTful**
+
 For testing REST API-s I used Postman, if you need to download it, useful [link](https://www.postman.com/downloads/).
 Endpoints for testing API-s is http://127.0.0.1:6767/api/api_routes/.
 
@@ -56,9 +59,9 @@ I added validation to correspond to form which is used in application. Password 
 In this endpoint I used Basic Authentication, and it's neccessary to set Postman, in Autorization card 
 set type to Basic Auth, and in fields where is 
 USERNAME to type EMAIL used for registration and in field where is PASSWORD, 
-PASSWORD used to register to application. After login token will be presented to user 
+PASSWORD which is used to for registration application. After login token will be presented to user 
 (JWT) and with token wich is needed to be placed in headers in /all_users route, user will
- be able to see all registered users in application, token will last 90 minutes, offcourse 
+ be able to see all registered users in application, token will last 90 minutes, of course 
  it can be set for another amount of time, after 90 minutes user must be logged again.
 
 
@@ -71,11 +74,11 @@ uncheck generic keys and to add folowing:
 | Authorization  | Basic                   | 
 | x-access-token | *here goes token value* | 
 
-After sending request user will be able to see credentials off all other registered users, 
-offcourse password will not be disaplayed.
+After sending request user will be able to see credentials of all other registered users, 
+of course password will not be disaplayed.
 
 -To ask for reset password endpoint is /request_reset
-On this endpoint, method is GET it's neccessary to send email in JSON format.
+On this endpoint, method is GET and it's neccessary to send email in JSON format.
 ```
 {
     "email": "emailusedfor@registration.app"
@@ -86,7 +89,7 @@ be sent to user. Email which is send to user is slightly different depends from 
 is asked for password reset, but in both cases token(in this case I used itsdangerous.TimedJSONWebSignatureSerializer class) will be send in email, token for password reset will last 30 minutes.
 To test endpoint it's needed to copy url present in email, and it will look something like this
 http://localhost:6767/api/api_routes/reset_password/<token_value_here>,
-and to send, method is POST, 
+and to send, method is POST.
 ```
 {
 	"password": "newpassword",
