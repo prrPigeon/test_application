@@ -21,11 +21,11 @@ where run.py file is located, and application will be started on http://127.0.0.
 **Database**
 
 Database used in application is PostgreSQL==10.0.
-If you need to install PostgreSQL on your machine, useful [link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04).
+If you need to install and setup PostgreSQL on your machine, useful [link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04).
 .env file is created to handle all enviroment variables, in this file you will 
 find instructions where to put you path to database, api keys, email users etc. For testing database
 changes and to see what happening, usefull application is PgAdmin, but i am not expert with PgAdmin, 
-i like to use terminal, and if you want to quickly open created database for this application.
+i like to use terminal, and after installing and setu if you want to quickly open created database for this application.
 Usefull command is 
 `$ psql -d <nameofdatabase> -U <nameofdatabaseuser> -h localhost`
 
